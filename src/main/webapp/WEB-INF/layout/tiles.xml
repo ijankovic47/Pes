@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>  
+  
+   <!-- Base Definition -->
+   <definition name="base-layout"
+       template="/WEB-INF/layout/layout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+       <put-attribute name="footer" value="" />
+       <put-attribute name="body" value="" />  
+   </definition>  
+    <!-- Login Definition -->
+   <definition name="login-layout"
+       template="/WEB-INF/layout/login-layout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="" />
+       <put-attribute name="footer" value="" />
+       <put-attribute name="body" value="" />  
+   </definition>  
+    
+   <!-- Home Page -->
+   <definition name="home" extends="base-layout">  
+       <put-attribute name="title" value="Home" />  
+       <put-attribute name="body" value="/WEB-INF/views/home.jsp" />  
+       <put-attribute name="jquery" value=""/>
+   </definition>  
+    <definition name="match" extends="base-layout">  
+       <put-attribute name="title" value="Match" />  
+       <put-attribute name="body" value="/WEB-INF/views/match.jsp" />  
+       <put-attribute name="jquery" value="match.jqr.js"/>
+   </definition>  
+    <definition name="players" extends="base-layout">  
+       <put-attribute name="title" value="Players" />  
+       <put-attribute name="body" value="/WEB-INF/views/players.jsp" />  
+       <put-attribute name="jquery" value="player.jqr.js"/>
+   </definition>  
+      <definition name="teams" extends="base-layout">  
+       <put-attribute name="title" value="Teams" />  
+       <put-attribute name="body" value="/WEB-INF/views/teams.jsp" />  
+       <put-attribute name="jquery" value="club.jqr.js"/>
+   </definition>  
+   
+       <definition name="login" extends="login-layout">  
+       <put-attribute name="title" value="LogIn" />  
+       <put-attribute name="body" value="/WEB-INF/views/login.jsp" />  
+       <put-attribute name="jquery" value=""/>
+   </definition>  
+ 
+</tiles-definitions>
