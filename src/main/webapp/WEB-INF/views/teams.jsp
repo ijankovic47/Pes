@@ -13,7 +13,7 @@ uri="http://www.springframework.org/security/tags" %>
 <td>
 <c:choose>
 <c:when test="${league.emblem!=null}">
-<img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/leagues_continents/${league.emblem}'/>" style="height: 80px;width: 80px;">
+<img alt="/images/NoImage.JPG" src="${league.emblem}" style="height: 80px;width: 80px;">
 </c:when>
 <c:otherwise><img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/NoImage.JPG'/>" style="height: 80px;width: 80px;"></c:otherwise>
 </c:choose>
@@ -24,7 +24,7 @@ ${league.name}<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_LEA
 <td>
 <c:choose>
 <c:when test="${club.emblem!=null}">
-<img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/teams/${club.emblem}'/>" style="height: 80px;width: 80px;">
+<img alt="/images/NoImage.JPG" src="${club.emblem}" style="height: 80px;width: 80px;">
 </c:when>
 <c:otherwise><img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/NoImage.JPG'/>" style="height: 80px;width: 80px;"></c:otherwise>
 </c:choose>
@@ -39,7 +39,7 @@ ${club.name}<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_CLUBS
 <td>
 <c:choose>
 <c:when test="${continent.emblem!=null}">
-<img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/leagues_continents/${continent.emblem}'/>" style="height: 80px;width: 80px;">
+<img alt="/images/NoImage.JPG" src="${continent.emblem}" style="height: 80px;width: 80px;">
 </c:when>
 <c:otherwise><img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/NoImage.JPG'/>" style="height: 80px;width: 80px;"></c:otherwise>
 </c:choose>
@@ -50,7 +50,7 @@ ${continent.name}<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_
 <td>
 <c:choose>
 <c:when test="${nation.emblem!=null}">
-<img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/teams/${nation.emblem}'/>" style="height: 80px;width: 80px;">
+<img alt="/images/NoImage.JPG" src="${nation.emblem}" style="height: 80px;width: 80px;">
 </c:when>
 <c:otherwise><img alt="/images/NoImage.JPG" src="<c:url value='/resources/images/NoImage.JPG'/>" style="height: 80px;width: 80px;"></c:otherwise>
 </c:choose>

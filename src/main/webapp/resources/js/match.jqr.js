@@ -42,7 +42,7 @@ $(function() {
 	   			
 	   			}   			
 	   			if(data.length>0&&data[0].emblem!=null){
-	   				$("#team1pic").attr("src","resources/images/teams/"+data[0].emblem);
+	   				$("#team1pic").attr("src",data[0].emblem);
 	   			}
 	   			else{
 	   				$("#team1pic").attr("src","resources/images/NoImage.JPG");
@@ -65,7 +65,7 @@ $(function() {
 		   			console.log('succes');
 		   			console.log(data);
 		   			if(data){
-		   				$("#league1pic").attr("src","resources/images/leagues_continents/"+data);
+		   				$("#league1pic").attr("src",data);
 		   			}
 		   			else{
 		   				$("#league1pic").attr("src","resources/images/NoImage.jpg");
@@ -103,7 +103,7 @@ $(function() {
 	   			
 	   			}
                 if(data.length>0&&data[0].emblem!=null){
-                	$("#team2pic").attr("src","resources/images/teams/"+data[0].emblem);
+                	$("#team2pic").attr("src",data[0].emblem);
                 }
                 else{
                 	$("#team2pic").attr("src","resources/images/NoImage.JPG");
@@ -126,7 +126,7 @@ $(function() {
 		   			console.log('succes');
 		   			console.log(data);
 		   			if(data){
-		   				$("#league2pic").attr("src","resources/images/leagues_continents/"+data);
+		   				$("#league2pic").attr("src",data);
 		   			}
 		   			else{
 		   				$("#league2pic").attr("src","resources/images/NoImage.JPG");
@@ -177,7 +177,7 @@ $(function() {
 	   			console.log('succes');
 	   			console.log(data);
 	   			if(data){
-	   				$("#player1pic").attr("src","resources/images/players/"+data);
+	   				$("#player1pic").attr("src",data);
 	   			}
 	   			else{
 	   				$("#player1pic").attr("src","resources/images/NoImage.JPG");
@@ -203,7 +203,7 @@ $('#player2').on('change', function(){
 	   			console.log('succes');
 	   			console.log(data);
 	   			if(data){
-	   				$("#player2pic").attr("src","resources/images/players/"+data);
+	   				$("#player2pic").attr("src",data);
 	   			}
 	   			else{
 	   				$("#player2pic").attr("src","resources/images/NoImage.JPG");
@@ -232,7 +232,7 @@ function changeTeamEmblem(index){
    			console.log('succes');
    			console.log(data);
    			if(data){
-   				$("#team"+index+"pic").attr("src","resources/images/teams/"+data);
+   				$("#team"+index+"pic").attr("src",data);
    			}
    			else{
    				$("#team"+index+"pic").attr("src","resources/images/NoImage.JPG");
@@ -259,7 +259,7 @@ function getPlayerImage(playerId, oneOrTwo){
    			console.log('succes');
    			console.log(data);
    			if(data){
-   				$("#player"+oneOrTwo+"pic").attr("src","resources/images/players/"+data);
+   				$("#player"+oneOrTwo+"pic").attr("src",data);
    			}
    			else{
    				$("#player"+oneOrTwo+"pic").attr("src","resources/images/NoImage.JPG");
@@ -306,7 +306,7 @@ function  getLeagueEmblem(leagueName, oneOrTwo){
   			
   			}   			
   			if(data.length>0&&data[counter].emblem!=null){
-  				$("#team"+oneOrTwo+"pic").attr("src","resources/images/teams/"+data[counter].emblem);
+  				$("#team"+oneOrTwo+"pic").attr("src",data[counter].emblem);
   			}
   			else{
   				$("#team"+oneOrTwo+"pic").attr("src","resources/images/NoImage.JPG");
@@ -328,7 +328,7 @@ function  getLeagueEmblem(leagueName, oneOrTwo){
 	   			console.log('succes');
 	   			console.log(data);
 	   			if(data){
-	   				$("#league"+oneOrTwo+"pic").attr("src","resources/images/leagues_continents/"+data);
+	   				$("#league"+oneOrTwo+"pic").attr("src",data);
 	   			}
 	   			else{
 	   				$("#league"+oneOrTwo+"pic").attr("src","resources/images/NoImage.JPG");

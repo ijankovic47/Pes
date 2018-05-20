@@ -10,7 +10,7 @@
 <table border="1">
 <tr><th>Image</th><th>Player name</th><th>Stats</th><th>Edit</th></tr>
 <c:forEach items="${players}" var="player">
-<tr><td><img src="<c:url value='/resources/images/players/${player.image}'/>" style="height: 200px;width: 200px;"></td><td>${player.name}</td>
+<tr><td><img src="${player.image}" style="height: 200px;width: 200px;"></td><td>${player.name}</td>
 <td><button class="playerStatsBtn" value="${player.id}">Stats</button></td><td><sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_PLAYERS')"><button class="playerEditBtn" value="${player.id}">Edit</button></sec:authorize></td></tr>
 </c:forEach>
 </table>
