@@ -14,6 +14,7 @@ $(function() {
 		   			$('#clubId').val(data.id);
 		   			$('#clubId').show();
 		   			$('#clubName').val(data.name);
+		   			$('#clubEmblem').val(data.emblem);
 		   			$('#clubEditForm').css("visibility",'visible');
 		   			$('#leagueEditForm').css("visibility",'hidden');
 		   			$('#nationEditForm').css("visibility",'hidden');
@@ -36,6 +37,7 @@ $(function() {
 			$('#clubId').val(null);
 			$('#clubId').hide();
 			$('#clubName').val(null);
+			$('#clubEmblem').val(null);
 			$('#clubEditForm').css("visibility",'visible');
 			$('#leagueEditForm').css("visibility",'hidden');
 			$('#nationEditForm').css("visibility",'hidden');
@@ -47,6 +49,7 @@ $('#addNationBtn').on('click', function(){
 			$('#nationId').val(null);
 			$('#nationId').hide();
 			$('#nationName').val(null);
+			$('#nationEmblem').val(null);
 			$('#nationEditForm').css("visibility",'visible');
 			$('#leagueEditForm').css("visibility",'hidden');
 			$('#clubEditForm').css("visibility",'hidden');
@@ -59,6 +62,7 @@ $('#addLeagueBtn').on('click', function(){
 		$('#leagueId').val(null);
 		$('#leagueId').hide();
 		$('#leagueName').val(null);
+		$('#leagueEmblem').val(null);
 		$('#leagueEditForm').css("visibility",'visible');
 		$('#clubEditForm').css("visibility",'hidden');
 		$('#nationEditForm').css("visibility",'hidden');
@@ -70,6 +74,7 @@ $('#addContinentBtn').on('click', function(){
 		$('#continentId').val(null);
 		$('#continentId').hide();
 		$('#continentName').val(null);
+		$('#continentEmblem').val(null);
 		$('#continentEditForm').css("visibility",'visible');
 		$('#leagueEditForm').css("visibility",'hidden');
 		$('#nationEditForm').css("visibility",'hidden');
@@ -90,6 +95,7 @@ $('#addContinentBtn').on('click', function(){
 		   			$('#nationId').val(data.id);
 		   			$('#nationId').show();
 		   			$('#nationName').val(data.name);
+		   			$('#nationEmblem').val(data.emblem);
 		   			$('#nationEditForm').css("visibility",'visible');
 		   			$('#leagueEditForm').css("visibility",'hidden');
 		   			$('#continentEditForm').css("visibility",'hidden');
@@ -119,6 +125,7 @@ $('.leagueEditBtn').on('click', function(){
 		   			$('#leagueId').val(data.id);
 		   			$('#leagueId').show();
 		   			$('#leagueName').val(data.name);
+		   			$('#leagueEmblem').val(data.emblem);
 		   			$('#leagueEditForm').css("visibility",'visible');
 		   			$('#continentEditForm').css("visibility",'hidden');
 		   			$('#nationEditForm').css("visibility",'hidden');
@@ -148,6 +155,7 @@ $('.continentEditBtn').on('click', function(){
 	   			$('#continentId').val(data.id);
 	   			$('#continentId').show();
 	   			$('#continentName').val(data.name);
+	   			$('#continentEmblem').val(data.emblem);
 	   			$('#continentEditForm').css("visibility",'visible');
 	   			$('#leagueEditForm').css("visibility",'hidden');
 	   			$('#nationEditForm').css("visibility",'hidden');

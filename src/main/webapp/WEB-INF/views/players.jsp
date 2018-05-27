@@ -18,10 +18,10 @@
 <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_PLAYERS')"><button id="addPlayerBtn">Add new player</button></sec:authorize>
 
 <div id="playerEditForm" style="visibility: hidden;">
-<form action="${contextPath}/player/saveOrUpdatePlayer" method="POST" enctype="multipart/form-data">
+<form action="${contextPath}/player/saveOrUpdatePlayer" method="POST">
 <input type="text" id="playerId" name="playerId" readonly="readonly">
 <input type="text" id="playerName" name="playerName">
-<input type="file" name="file" accept="image/jpeg,image/png,image/gif">
+<input type="text" id="playerImage" name="playerImage">
 <input type="submit" value="Save"> 
 </form>
 </div>
