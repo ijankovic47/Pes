@@ -66,7 +66,7 @@ ${nation.name} <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_NA
 <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_CONTINENTS')"><button id="addContinentBtn">Add new continent</button></sec:authorize>	
 
 <div id="clubEditForm" style="visibility: hidden;">
-<form action="${contextPath}/team/saveOrUpdateClub" method="POST" enctype="multipart/form-data">
+<form action="${contextPath}/team/saveOrUpdateClub" method="POST">
 <input type="text" id="clubId" name="clubId" readonly="readonly">
 <input type="text" id="clubName" name="clubName">
 <select id="clubLeague" name="clubLeague">
@@ -74,7 +74,7 @@ ${nation.name} <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_NA
 <option value="${league.id}">${league.name}</option>
 </c:forEach>
 </select>
-<input type="file" name="file" id="file" accept="image/jpeg,image/png,image/gif">
+<input type="text" name="clubEmblem" id="clubEmblem">
 <input type="submit" value="Save">
 </form>
 </div>
@@ -82,7 +82,7 @@ ${nation.name} <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_NA
 
 
 <div id="nationEditForm" style="visibility: hidden;">
-<form action="${contextPath}/team/saveOrUpdateNation" method="POST" enctype="multipart/form-data">
+<form action="${contextPath}/team/saveOrUpdateNation" method="POST">
 <input type="text" id="nationId" name="nationId" readonly="readonly">
 <input type="text" id="nationName" name="nationName">
 <select id="nationContinent" name="nationContinent">
@@ -90,13 +90,13 @@ ${nation.name} <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_NA
 <option value="${continent.id}">${continent.name}</option>
 </c:forEach>
 </select>
-<input type="file" name="file" id="file" accept="image/jpeg,image/png,image/gif">
+<input type="text" name="nationEmblem" id="nationEmblem">
 <input type="submit" value="Save">
 </form>
 </div>
 
 <div id="leagueEditForm" style="visibility: hidden;">
-<form action="${contextPath}/league/saveOrUpdateLeague" method="POST" enctype="multipart/form-data">
+<form action="${contextPath}/league/saveOrUpdateLeague" method="POST">
 <input type="text" id="leagueId" name="leagueId" readonly="readonly">
 <input type="text" id="leagueName" name="leagueName">
 <select id="leagueNation" name="leagueNation">
@@ -104,16 +104,16 @@ ${nation.name} <sec:authorize access="hasAnyRole('ROLE_SUPERADMIN','ROLE_EDIT_NA
 <option value="${nation.id}">${nation.name}</option>
 </c:forEach>
 </select>
-<input type="file" name="file" id="file" accept="image/jpeg,image/png,image/gif">
+<input type="text" name="leagueEmblem" id="leagueEmblem">
 <input type="submit" value="Save">
 </form>
 </div>
 
 <div id="continentEditForm" style="visibility: hidden;">
-<form action="${contextPath}/continent/saveOrUpdateContinent" method="POST" enctype="multipart/form-data">
+<form action="${contextPath}/continent/saveOrUpdateContinent" method="POST">
 <input type="text" id="continentId" name="continentId" readonly="readonly">
 <input type="text" id="continentName" name="continentName">
-<input type="file" name="file" id="file" accept="image/jpeg,image/png,image/gif">
+<input type="text" id="continentEmblem" name="continentEmblem">
 <input type="submit" value="Save">
 </form>
 

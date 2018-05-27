@@ -32,7 +32,7 @@ import konami.pes.services.NationService;
 import konami.pes.services.TeamService;
 
 @Controller
-@RequestMapping(value="/team")
+@RequestMapping(value = "/team")
 public class TeamController {
 
 	@Autowired
@@ -47,136 +47,94 @@ public class TeamController {
 	ServletContext servletContext;
 	@Autowired
 	ContinentService continentService;
-	
-	
-	@RequestMapping(method=RequestMethod.GET)
-	public String showClubs(Model model){
-		List<League> leagues=leagueService.getAllLeagues();
-		List<Club> clubs=clubService.getAllClubs();
-		List<Continent> continents=continentService.getAllContinents();
-		List<Nation> nations=nationService.getAllNations();
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String showClubs(Model model) {
+		List<League> leagues = leagueService.getAllLeagues();
+		List<Club> clubs = clubService.getAllClubs();
+		List<Continent> continents = continentService.getAllContinents();
+		List<Nation> nations = nationService.getAllNations();
 		model.addAttribute("leagues", leagues);
-		model.addAttribute("clubs",clubs);
-		model.addAttribute("continents",continents);
-		model.addAttribute("nations",nations);
+		model.addAttribute("clubs", clubs);
+		model.addAttribute("continents", continents);
+		model.addAttribute("nations", nations);
 		return "teams";
 	}
-	@RequestMapping(value="/saveOrUpdateClub",method=RequestMethod.POST)
-	public String saveOrUpdateClub(@RequestParam("clubId") String clubId,@RequestParam("clubName") String clubName,@RequestParam("clubLeague") Integer clubLeagueId,@RequestParam("file") MultipartFile file){
-		
-		Club c=new Club();
-		if(clubId!=null && !clubId.isEmpty()){
-	    c=clubService.getClubById(Integer.valueOf(clubId));
+
+	@RequestMapping(value = "/saveOrUpdateClub", method = RequestMethod.POST)
+	public String saveOrUpdateClub(@RequestParam("clubId") String clubId, @RequestParam("clubName") String clubName,
+			@RequestParam("clubLeague") Integer clubLeagueId, @RequestParam("clubEmblem") String clubEmblem) {
+
+		Club c = new Club();
+		if (clubId != null && !clubId.isEmpty()) {
+			c = clubService.getClubById(Integer.valueOf(clubId));
 		}
 		c.setName(clubName);
 		c.setLeague(leagueService.getLeagueById(clubLeagueId));
-		
-		
-		if(!file.isEmpty()){
-			String realPath=servletContext.getRealPath("/");
-			File dir=new File(realPath+clubService.CLUB_IMAGES_PATH);
-			try {
-				//byte[] bytes=file.getBytes();
-		        String finalPath=dir+File.separator+file.getOriginalFilename();
-		        if(c.getEmblem()!=null){
-		        	File f=new File(dir+File.separator+c.getEmblem());
-		        	if(f.exists()){
-		        		f.delete();	 
-		        	}
-		        }
-//		        BufferedOutputStream bout=new BufferedOutputStream(  
-//		                 new FileOutputStream(finalPath));  
-//		        bout.write(bytes);  
-//		        bout.flush();  
-//		        bout.close(); 
-		        file.transferTo(new File(finalPath));
-		        c.setEmblem(file.getOriginalFilename());
-		       
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
-			}
-		}
-		 clubService.saveClub(c);
+		c.setEmblem(clubEmblem);
+
+		clubService.saveClub(c);
+
 		return "redirect:/team";
 	}
-	@RequestMapping(value="/saveOrUpdateNation",method=RequestMethod.POST)
-	public String saveOrUpdateNation(@RequestParam("nationId") String nationId,@RequestParam("nationName") String nationName,@RequestParam("nationContinent") Integer nationContinentId,@RequestParam("file") MultipartFile file){
-		
-		Nation n=new Nation();
-		if(nationId!=null && !nationId.isEmpty()){
-	    n=nationService.getNationById(Integer.valueOf(nationId));
+
+	@RequestMapping(value = "/saveOrUpdateNation", method = RequestMethod.POST)
+	public String saveOrUpdateNation(@RequestParam("nationId") String nationId,
+			@RequestParam("nationName") String nationName, @RequestParam("nationContinent") Integer nationContinentId,
+			@RequestParam("nationEmblem") String nationEmblem) {
+
+		Nation n = new Nation();
+		if (nationId != null && !nationId.isEmpty()) {
+			n = nationService.getNationById(Integer.valueOf(nationId));
 		}
 		n.setName(nationName);
 		n.setContinent(continentService.getContinentById(nationContinentId));
+		n.setEmblem(nationEmblem);
 		
+		nationService.saveOrUpdateNation(n);
 		
-		if(!file.isEmpty()){
-			String realPath=servletContext.getRealPath("/");
-			File dir=new File(realPath+nationService.NATION_IMAGES_PATH);
-			try {
-				byte[] bytes=file.getBytes();
-		        String finalPath=dir+File.separator+file.getOriginalFilename();
-		        if(n.getEmblem()!=null){
-		        	File f=new File(dir+File.separator+n.getEmblem());
-		        	if(f.exists()){
-		        		f.delete();	 
-		        	}
-		        }
-		        BufferedOutputStream bout=new BufferedOutputStream(  
-		                 new FileOutputStream(finalPath));  
-		        bout.write(bytes);  
-		        bout.flush();  
-		        bout.close(); 
-		        n.setEmblem(file.getOriginalFilename());
-		       
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
-			}
-		}
-		 nationService.saveOrUpdateNation(n);
 		return "redirect:/team";
 	}
-	
-	@RequestMapping(value="/getClubById",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/getClubById", method = RequestMethod.GET)
 	@ResponseBody
-	public Club getClubById(@RequestParam("clubId") Integer clubId){
-		
+	public Club getClubById(@RequestParam("clubId") Integer clubId) {
+
 		return clubService.getClubById(clubId);
 	}
-	@RequestMapping(value="/getNationById",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/getNationById", method = RequestMethod.GET)
 	@ResponseBody
-	public Nation getNationById(@RequestParam("nationId") Integer nationId){
-		
+	public Nation getNationById(@RequestParam("nationId") Integer nationId) {
+
 		return nationService.getNationById(nationId);
 	}
-	
-	@RequestMapping(value="/getTeamsByLeagueOrContinentName",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/getTeamsByLeagueOrContinentName", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Team> getTeamsByLeagueOrContinentName(@RequestParam("leagueOrContinentName") String name){
-		
-		List<Team> teams=new ArrayList<Team>();
-		List<Club> clubs=new ArrayList<Club>();
-		List<Nation> nations=new ArrayList<Nation>();
-		clubs=clubService.getClubsByLeagueName(name);
-		if(!clubs.isEmpty()){
-			for(Club c:clubs){
+	public List<Team> getTeamsByLeagueOrContinentName(@RequestParam("leagueOrContinentName") String name) {
+
+		List<Team> teams = new ArrayList<Team>();
+		List<Club> clubs = new ArrayList<Club>();
+		List<Nation> nations = new ArrayList<Nation>();
+		clubs = clubService.getClubsByLeagueName(name);
+		if (!clubs.isEmpty()) {
+			for (Club c : clubs) {
 				teams.add(c);
 			}
-		}
-		else{
-			nations=nationService.getNationsByContinentName(name);
-			for(Nation n:nations){
+		} else {
+			nations = nationService.getNationsByContinentName(name);
+			for (Nation n : nations) {
 				teams.add(n);
 			}
 		}
 		return teams;
 	}
-	@RequestMapping(value="/getTeamEmblem",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/getTeamEmblem", method = RequestMethod.GET)
 	@ResponseBody
-	public String getTeamEmblem(@RequestParam("teamId") Integer teamId){
-		
+	public String getTeamEmblem(@RequestParam("teamId") Integer teamId) {
+
 		return teamService.getTeamEmblem(teamId);
 	}
 }

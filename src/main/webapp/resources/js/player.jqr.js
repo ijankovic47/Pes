@@ -13,6 +13,7 @@ $(function() {
 		   			$('#playerId').val(data.id);
 		   			$('#playerId').show();
 		   			$('#playerName').val(data.name);
+		   			$('#playerImage').val(data.image);
 		   			$('#playerEditForm').css("visibility",'visible');
 		   			
 		   		},
@@ -31,6 +32,7 @@ $(function() {
 			$('#playerId').val(null);
 			$('#playerId').hide();
 			$('#playerName').val(null);
+			$('#playerImage').val(null);
 			$('#playerEditForm').css("visibility",'visible');
 	});
 	

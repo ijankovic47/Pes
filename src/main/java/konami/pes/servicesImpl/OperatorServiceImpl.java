@@ -3,6 +3,7 @@ package konami.pes.servicesImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.util.SystemOutLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,7 +27,6 @@ public class OperatorServiceImpl implements UserDetailsService, OperatorService 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Operator o=operatorDao.getOperatorByUsername(username);
-		
 		
 		if(o!=null){
 			List<GrantedAuthority> authorities =

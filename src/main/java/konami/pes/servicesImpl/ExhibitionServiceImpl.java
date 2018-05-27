@@ -21,6 +21,15 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 		
 		Date now=new Date();
 		exhibition.setDate(now);
+		System.out.println(exhibition.getDate());
+		System.out.println(exhibition.getPlayer1().getId());
+		System.out.println(exhibition.getPlayer2().getId());
+		System.out.println(exhibition.getTeam1().getId());
+		System.out.println(exhibition.getTeam2().getId());
+		System.out.println(exhibition.getScore1());
+		System.out.println(exhibition.getScore2());
+		System.out.println(exhibition.getInterrupted());
+		exhibition.setInterrupted(true);
 		return exhibitionDao.saveExhibition(exhibition);
 	}
 
